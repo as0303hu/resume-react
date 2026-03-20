@@ -1,0 +1,45 @@
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@page {
+  size: A4;
+  margin: 8mm;
+}
+
+@media print {
+  html,
+  body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-control {
+    display: none !important;
+  }
+
+  .resume-page {
+    min-height: auto;
+    background: #ffffff !important;
+    padding: 0 !important;
+  }
+
+  .resume-sheet {
+    width: 100%;
+    max-width: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    transform: scale(0.93);
+    transform-origin: top center;
+  }
+}
