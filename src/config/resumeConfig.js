@@ -4,6 +4,7 @@ export const RESUME_CONFIG = {
   },
   sections: {
     experience: "EXPERIENCE",
+    poc: "PROOF OF CONCEPT",
     summary: "SUMMARY",
     education: "EDUCATION",
     achievements: "KEY ACHIEVEMENTS",
@@ -11,16 +12,24 @@ export const RESUME_CONFIG = {
   },
   profile: {
     name: "Ashutosh Kumar Singh",
-    role: "Senior Software Engineer",
+    role: "Senior Software Engineer | Full Stack Developer (Python | React)",
     contacts: [
       { icon: "📞", value: "7982394846" },
-      { icon: "✉️", value: "as03038@gmail.com" },
-      { icon: "🔗", value: "linkedin.com/in/ashu-aks" },
-      { icon: "📍", value: "Bangalore, Karnataka, India" },
+      {
+        icon: "✉️",
+        value: "as0303hu@gmail.com",
+        url: "mailto:as0303hu@gmail.com",
+      },
+      {
+        icon: "🔗",
+        value: "linkedin.com/in/ashu-aks",
+        url: "https://linkedin.com/in/ashu-aks",
+      },
+      { icon: "📍", value: "Noida, Uttar Pradesh, India" },
     ],
   },
   summary:
-    "Senior Software Engineer with over 7+ years of experience in developing scalable applications using Python, PostgreSQL, AWS, and React. Skilled in backend development, LLM integration using Azure OpenAI, and prompt engineering. Proven in delivering scalable solutions with strong system design and CI/CD practices.",
+    "Senior Software Engineer with 7+ years of experience in designing and developing scalable enterprise applications using Python, FastAPI, React.js, PostgreSQL, and Docker across Tax Compliance, Financial Services (NBFC), and Digital Media domains. Experienced in building high-performance REST APIs, AI-powered automation solutions, and modern web applications. Hands-on expertise in Azure OpenAI, Retrieval-Augmented Generation (RAG), Agentic AI, and Large Embedding Models for developing intelligent tax research and document analysis solutions. Proven ability to collaborate directly with business stakeholders and deliver end-to-end, scalable applications from design to production. Passionate about building robust backend systems, AI-driven products, and high-quality software solutions.",
   education: {
     degree: "Bachelor's Degree",
     details: "APJ Abdul Kalam Azad Technical University • 03/06/2017 • India",
@@ -30,6 +39,9 @@ export const RESUME_CONFIG = {
     title: "Promotion at Accenture",
     details:
       "Promoted in recognition of technical ownership and consistent delivery across multiple client projects",
+  },
+  certifications: {
+    items: ["AWS Certified Cloud Practitioner", "Microsoft Azure Fundamentals"],
   },
   experiences: [
     {
@@ -65,7 +77,7 @@ export const RESUME_CONFIG = {
     {
       title: "Software Developer Associate",
       companyLine:
-        "Mount Blue Technology • 05/2020 – 09/2020 • Karnataka, India",
+        "Mount Blue Technology • 05/2019 – 09/2020 • Karnataka, India",
       points: [
         "Completed 3-month intensive training program covering End-to-End process",
         "Deputed to Davita Financial Services Pvt. Ltd. - focused on Presentation Layer Fabrication",
@@ -73,45 +85,104 @@ export const RESUME_CONFIG = {
       ],
     },
   ],
+  poc: {
+    title: "RAG & Vector Database Proof of Concept",
+    items: [
+      "Built a proof of concept for RAG-enabled AI workflows using Azure OpenAI and vector database search",
+      "Integrated retrieval-augmented generation with contextual prompt orchestration for higher-quality responses",
+      "Validated concept performance by combining LLM inference, vector search, and prompt engineering in a real-world scenario",
+      "Demonstrated end-to-end retrieval and answer generation with scalable search vectors",
+    ],
+  },
+  footer: {
+    signatureLabel: "Signature",
+    signature: "Ashutosh Kumar Singh",
+    dateLabel: "Date",
+    date: "27 June 2026",
+  },
+  secondPage: {
+    title: "ADDITIONAL INFORMATION",
+    blocks: [
+      {
+        title: "Projects",
+        items: [
+          "Built a modular React resume template with reusable UI sections and print-friendly layout",
+          "Created a clean, professional structure that can be extended with more experience or portfolio content",
+        ],
+      },
+      {
+        title: "Certifications",
+        items: [
+          "AWS Certified Cloud Practitioner",
+          "Microsoft Azure Fundamentals",
+        ],
+      },
+    ],
+  },
   skills: [
     {
-      category: "Backend & APIs",
-      items: [
-        "Python (FastAPI)",
-        "REST API Development",
-        "Microservices Architecture",
-        "Async Processing",
-      ],
+      category: "Programming Languages",
+      items: ["Python", "JavaScript (ES6+)", "SQL"],
     },
     {
-      category: "AI & LLM Integration",
+      category: "Frameworks & Libraries",
       items: [
-        "LLM Integration (Azure OpenAI)",
-        "Prompt Engineering",
-        "AI Workflow Development",
-      ],
-    },
-    {
-      category: "Frontend",
-      items: [
+        "FastAPI",
         "React.js",
         "Next.js",
-        "Redux / RTK Query",
-        "Tailwind CSS / Material UI",
+        "LangGraph",
+        "Redux",
+        "React Query",
+        "Material UI",
+        "Pydantic",
       ],
     },
     {
-      category: "Database & Cloud",
-      items: ["PostgreSQL", "MongoDB", "MySQL", "AWS"],
+      category: "AI & Generative AI",
+      items: [
+        "Azure OpenAI",
+        "LangGraph",
+        "Agentic AI",
+        "Retrieval-Augmented Generation (RAG)",
+        "Prompt Engineering",
+        "Large Language Models (LLMs)",
+        "Embedding Models",
+        "AI Workflow Automation",
+      ],
+    },
+    {
+      category: "Backend Development",
+      items: [
+        "REST APIs",
+        "Microservices",
+        "Asynchronous Programming",
+        "API Integration",
+        "Authentication & Authorization",
+      ],
+    },
+    {
+      category: "Databases",
+      items: ["PostgreSQL", "MySQL", "SQLite"],
+    },
+    {
+      category: "DevOps & Cloud",
+      items: ["Docker", "AWS", "Liquibase", "Git", "GitHub"],
+    },
+    {
+      category: "Automation & Tools",
+      items: ["Jira", "Confluence"],
+    },
+    {
+      category: "Methodologies",
+      items: ["Agile", "Scrum"],
     },
   ],
 };
 
 export const RESUME_UI = {
-  pageWrapper: "resume-page min-h-screen bg-gray-100 py-4 px-2",
-  sheetWrapper:
-    "resume-sheet max-w-[1100px] mx-auto bg-white border border-gray-300 shadow-lg overflow-hidden",
-  printControl: "max-w-[1100px] mx-auto mb-4 text-right print-control",
+  pageWrapper: "resume-page bg-gray-100 py-4 px-2",
+  sheetWrapper: "resume-sheet w-[210mm] mx-auto bg-white",
+  printControl: "max-w-[210mm] mx-auto mb-4 text-right print-control",
   printButton:
     "inline-flex items-center rounded-md bg-[#1e40af] px-4 py-2 text-sm font-semibold text-white shadow-sm",
   header: {
@@ -124,10 +195,10 @@ export const RESUME_UI = {
     contactItem: "flex items-center justify-end gap-2 leading-tight",
     contactIcon: "w-4 text-center",
   },
-  bodyGrid: "grid grid-cols-12 gap-6 p-4",
+  bodyGrid: "grid grid-cols-12 gap-4 p-4",
   columns: {
     left: "col-span-7",
-    right: "col-span-5 space-y-6",
+    right: "col-span-5 space-y-1",
   },
   sectionTitle:
     "text-[#1e40af] font-bold text-lg border-b-2 border-[#1e40af] pb-1",
@@ -144,6 +215,15 @@ export const RESUME_UI = {
   summaryText: "text-sm leading-relaxed",
   educationDegree: "font-semibold",
   educationDetails: "text-sm",
+  secondPageWrapper: "resume-page-break p-0 m-0",
+  secondPageCard: "resume-second-page w-[210mm] mx-auto bg-white p-4",
+  secondPageContent: "grid grid-cols-12 gap-4 p-0",
+  secondPageBlockTitle:
+    "font-semibold text-slate-900 mb-3 text-[#1e40af] font-bold text-lg border-b-2 border-[#1e40af] pb-1",
+  secondPageList:
+    "list-disc list-inside text-sm leading-relaxed text-gray-700 space-y-1",
+  secondPageBlockLeft: "col-span-7 px-4 pt-4",
+  secondPageBlockRight: "col-span-5 space-y-3 px-4 pt-0",
   achievementWrapper: "flex gap-2",
   achievementIcon: "text-2xl",
   skillCategory: "text-blue-600 font-semibold m-0 mb-1 leading-tight",

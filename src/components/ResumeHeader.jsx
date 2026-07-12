@@ -17,7 +17,16 @@ export default function ResumeHeader({ profile }) {
             className={RESUME_UI.header.contactItem}
           >
             <span className={RESUME_UI.header.contactIcon}>{contact.icon}</span>
-            <span>{contact.value}</span>
+            {contact.url ? (
+              <a
+                href={contact.url}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                {contact.value}
+              </a>
+            ) : (
+              <span>{contact.value}</span>
+            )}
           </li>
         ))}
       </ul>

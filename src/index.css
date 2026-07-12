@@ -9,37 +9,17 @@ body {
 
 @page {
   size: A4;
-  margin: 8mm;
+  margin: 0;
 }
 
 @media print {
-  html,
-  body {
-    width: 210mm;
-    height: 297mm;
-    margin: 0;
-    background: #ffffff;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
   }
 
   .print-control {
     display: none !important;
-  }
-
-  .resume-page {
-    min-height: auto;
-    background: #ffffff !important;
-    padding: 0 !important;
-  }
-
-  .resume-sheet {
-    width: 100%;
-    max-width: none !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    overflow: visible !important;
-    transform: scale(0.93);
-    transform-origin: top center;
   }
 }
