@@ -1,5 +1,5 @@
 import SectionTitle from "./SectionTitle";
-import { RESUME_UI } from "../config/resumeConfig";
+import { RESUME_UI } from "../config/resumeUI";
 
 const EXPERIENCE_KEYWORDS = [
   "Python",

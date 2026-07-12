@@ -2,24 +2,74 @@ body {
   font-family: 'Segoe UI', system-ui, sans-serif;
   margin: 0;
 }
-
+ 
 * {
   box-sizing: border-box;
 }
-
+ 
 @page {
   size: A4;
   margin: 0;
 }
-
+ 
 @media print {
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
     color-adjust: exact !important;
   }
-
+ 
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    font-size: 12px !important;
+  }
+ 
   .print-control {
     display: none !important;
   }
+ 
+  .resume-page {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+  }
+ 
+  .resume-sheet {
+    width: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    page-break-after: always !important;
+  }
+ 
+  .resume-header {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    padding: 12px 16px !important;
+    gap: 8px !important;
+  }
+ 
+  .resume-body-grid {
+    gap: 8px !important;
+    padding: 4px 16px 8px !important;
+  }
+ 
+  .resume-page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+ 
+  .resume-second-page {
+    width: 210mm !important;
+    margin: 0 !important;
+    padding: 16px !important;
+    box-shadow: none !important;
+  }
 }
+ 

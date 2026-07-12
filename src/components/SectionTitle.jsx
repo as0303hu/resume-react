@@ -1,4 +1,4 @@
-import { RESUME_UI } from "../config/resumeConfig";
+import { RESUME_UI } from "../config/resumeUI";
 
 export default function SectionTitle({ title, withMargin = false }) {
   const className = withMargin
