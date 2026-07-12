@@ -2,6 +2,16 @@ import SectionTitle from "./SectionTitle";
 import { RESUME_UI } from "../config/resumeUI";
 
 const EXPERIENCE_KEYWORDS = [
+  "280+ regulatory sources",
+  "3k-4k regulatory alerts per month",
+  "asynchronous processing pipelines",
+  "AI-assisted triage and summarization workflows",
+  "scalable backend solutions",
+  "database queries",
+  "REST APIs",
+  "AWS SQS",
+  "microservices",
+  "Prompt Engineering",
   "Python",
   "FastAPI",
   "enterprise applications",
@@ -89,6 +99,36 @@ const KEYWORD_REGEX = new RegExp(
   "gi",
 );
 
+const METRIC_SPLIT_REGEX =
+  /(\d[\d,]*(?:\.\d+)?(?:[KkMmBb])?\+?(?:\s*[-–]\s*\d[\d,]*(?:\.\d+)?(?:[KkMmBb])?\+?)?%?)/g;
+const METRIC_DETECT_REGEX =
+  /^\d[\d,]*(?:\.\d+)?(?:[KkMmBb])?\+?(?:\s*[-–]\s*\d[\d,]*(?:\.\d+)?(?:[KkMmBb])?\+?)?%?$/;
+
+function renderSegmentWithMetrics(segment, parentIndex) {
+  return segment.split(METRIC_SPLIT_REGEX).map((metricPart, metricIndex) => {
+    if (!metricPart) {
+      return null;
+    }
+
+    if (!METRIC_DETECT_REGEX.test(metricPart)) {
+      return (
+        <span key={`${parentIndex}-${metricIndex}-${metricPart}`}>
+          {metricPart}
+        </span>
+      );
+    }
+
+    return (
+      <span
+        key={`${parentIndex}-${metricIndex}-${metricPart}`}
+        className="font-bold text-black"
+      >
+        {metricPart}
+      </span>
+    );
+  });
+}
+
 function renderPointWithKeywords(point) {
   const parts = point.split(KEYWORD_REGEX);
 
@@ -102,7 +142,11 @@ function renderPointWithKeywords(point) {
     );
 
     if (!isKeyword) {
-      return <span key={`${part}-${index}`}>{part}</span>;
+      return (
+        <span key={`${part}-${index}`}>
+          {renderSegmentWithMetrics(part, index)}
+        </span>
+      );
     }
 
     return (
@@ -114,28 +158,60 @@ function renderPointWithKeywords(point) {
 }
 
 function ExperienceBlock({ experience }) {
+  const companyMeta = [
+    experience.company,
+    experience.duration,
+    experience.location,
+  ]
+    .filter(Boolean)
+    .join(" | ");
+  const projects = Array.isArray(experience.projects)
+    ? experience.projects
+        .map((project) =>
+          typeof project === "string"
+            ? { name: project, points: [] }
+            : { name: project.name, points: project.points || [] },
+        )
+        .filter((project) => project.name)
+    : experience.project
+      ? [{ name: experience.project, points: experience.points || [] }]
+      : [];
+
   return (
     <div className={RESUME_UI.experience.block}>
       <p className={RESUME_UI.experience.role}>{experience.title}</p>
       <p className={RESUME_UI.experience.companyLine}>
-        {experience.companyLine}
+        {companyMeta || experience.companyLine}
       </p>
+      {projects.map((project) => (
+        <div key={project.name} className={"experience-project"}>
+          <p className={RESUME_UI.experience.projectLine}>
+            <span>Project:</span> <strong>{project.name}</strong>
+          </p>
+          <ul className={RESUME_UI.experience.list}>
+            {project.points.map((point) => (
+              <li key={point}>• {renderPointWithKeywords(point)}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      {!projects.length && (
+        <ul className={RESUME_UI.experience.list}>
+          {experience.points.map((point) => (
+            <li key={point}>• {renderPointWithKeywords(point)}</li>
+          ))}
 
-      <ul className={RESUME_UI.experience.list}>
-        {experience.points.map((point) => (
-          <li key={point}>• {renderPointWithKeywords(point)}</li>
-        ))}
+          {experience.highlightLabel && (
+            <li className={RESUME_UI.experience.highlightLabel}>
+              {experience.highlightLabel}
+            </li>
+          )}
 
-        {experience.highlightLabel && (
-          <li className={RESUME_UI.experience.highlightLabel}>
-            {experience.highlightLabel}
-          </li>
-        )}
-
-        {experience.highlightPoints?.map((point) => (
-          <li key={point}>• {renderPointWithKeywords(point)}</li>
-        ))}
-      </ul>
+          {experience.highlightPoints?.map((point) => (
+            <li key={point}>• {renderPointWithKeywords(point)}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
@@ -143,11 +219,11 @@ function ExperienceBlock({ experience }) {
 export default function ExperienceSection({ sectionTitle, experiences }) {
   return (
     <section>
-      <SectionTitle title={sectionTitle} withMargin />
+      {sectionTitle && <sectionTitle title={sectionTitle} withMargin />}
 
       {experiences.map((experience) => (
         <ExperienceBlock
-          key={`${experience.title}-${experience.companyLine}`}
+          key={`${experience.title}-${experience.company || experience.companyLine}`}
           experience={experience}
         />
       ))}

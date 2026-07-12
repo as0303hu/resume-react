@@ -4,28 +4,29 @@ import { RESUME_UI } from "../config/resumeUI";
 const SUMMARY_KEYWORDS = [
   "Senior Software Engineer",
   "7+ years",
-  "enterprise applications",
-  "Python",
-  "FastAPI",
-  "React.js",
-  "PostgreSQL",
-  "Docker",
-  "Tax Compliance",
-  "Financial Services",
-  "NBFC",
-  "Digital Media",
-  "high-performance REST APIs",
-  "REST APIs",
-  "AI-powered automation",
-  "Azure OpenAI",
-  "Retrieval-Augmented Generation",
+  "scalable backend systems",
+  "mordern web applications",
+  "AI-powered enterprise solutions",
+  "large-scale regulatory intelligence",
+  "tax research",
+  "financial services platforms",
+  "microservices architecture",
+  "asynchronous processing",
+  "API-driven systems",
+  "Generative AI",
   "RAG",
   "Agentic AI",
-  "Large Embedding Models",
-  "backend systems",
-  "end-to-end",
-  "scalable applications",
-  "AI-driven products",
+  "document intelligence workflows",
+  "production-ready software solutions",
+  "secure",
+  "scalable",
+  "AWS",
+  "Prompt Engineering",
+  "Python",
+  "FastAPI",
+  "React",
+  "PostgreSQL",
+  "Azure OpenAI",
 ];
 
 const SUMMARY_KEYWORD_REGEX = new RegExp(
@@ -58,23 +59,29 @@ function renderSummaryWithKeywords(summary) {
 export default function SidebarSection({ data, sectionTitles }) {
   return (
     <aside className={RESUME_UI.columns.right}>
-      <SectionTitle title={sectionTitles.summary} />
-      <p className={RESUME_UI.summaryText}>
-        {renderSummaryWithKeywords(data.summary)}
-      </p>
+      <div className="sidebar-section">
+        <SectionTitle title={sectionTitles.summary} />
+        <p className={RESUME_UI.summaryText}>
+          {renderSummaryWithKeywords(data.summary)}
+        </p>
+      </div>
 
-      <SectionTitle title={sectionTitles.skills} />
-      <div className={RESUME_UI.skillsWrapper}>
-        {data.skills.map((skillGroup) => (
-          <div key={skillGroup.category}>
-            <p className={RESUME_UI.skillCategory}>{skillGroup.category}</p>
-            <div className={RESUME_UI.skillItems}>
-              {skillGroup.items.map((item) => (
-                <span key={item}>• {item}</span>
-              ))}
+      <div className="sidebar-section skills-section mt-[20px]">
+        <SectionTitle title={sectionTitles.skills} />
+        <div className={RESUME_UI.skillsWrapper}>
+          {data.skills.map((skillGroup) => (
+            <div key={skillGroup.category} className={RESUME_UI.skillGroup}>
+              <p className={RESUME_UI.skillCategory}>{skillGroup.category}</p>
+              <div className={RESUME_UI.skillItems}>
+                {skillGroup.items.map((item) => (
+                  <span key={item} className={RESUME_UI.skillTag}>
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </aside>
   );

@@ -9,7 +9,11 @@ body {
  
 @page {
   size: A4;
-  margin: 0;
+  margin:20px 0 0 0;
+}
+
+@page :first {
+  margin-top: 0;
 }
  
 @media print {
@@ -41,7 +45,12 @@ body {
     margin: 0 !important;
     padding: 0 !important;
     box-shadow: none !important;
-    page-break-after: always !important;
+  }
+  
+  .resume-page-break {
+    break-before: page !important;
+    page-break-before: always !important;
+    margin-top: 0 !important;
   }
  
   .resume-header {
@@ -57,19 +66,35 @@ body {
     gap: 8px !important;
     padding: 4px 16px 8px !important;
   }
- 
-  .resume-page-break {
-    page-break-before: always !important;
-    break-before: page !important;
-    padding: 0 !important;
-    margin: 0 !important;
+  
+  .experience-project {
+    break-inside:avoid !important;
+    page-break-inside:avoid
+  }
+  .sidebar-section {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
  
-  .resume-second-page {
-    width: 210mm !important;
-    margin: 0 !important;
-    padding: 16px !important;
-    box-shadow: none !important;
+  .skills-section {
+    margin-top: 8px !important;
+  }
+ 
+  .skills-section > div {
+    gap: 4px !important;
+  }
+ 
+  .skill-group {
+    padding: 4px 6px !important;
+    border-radius: 4px !important;
+  }
+ 
+  .skill-group > p {
+    margin-bottom: 2px !important;
+  }
+ 
+  .skill-group > div {
+    gap: 3px !important;
   }
 }
  

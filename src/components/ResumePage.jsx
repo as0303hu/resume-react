@@ -5,6 +5,9 @@ import SidebarSection from "./SidebarSection";
 import { RESUME_UI } from "../config/resumeUI";
 
 export default function ResumePage({ data, onPrint }) {
+  const firstPageexperience = data.experiences.slice(0, 1);
+  const secondPageexperience = data.experiences.slice(1);
+
   return (
     <div className={RESUME_UI.pageWrapper}>
       <div className={RESUME_UI.printControl}>
@@ -32,82 +35,57 @@ export default function ResumePage({ data, onPrint }) {
         </div>
       </div>
 
-      {data.secondPage && (
-        <div className={RESUME_UI.secondPageWrapper}>
-          <div className={RESUME_UI.secondPageCard}>
-            <div className={RESUME_UI.secondPageContent}>
-              <div className={RESUME_UI.secondPageBlockLeft}>
-                <SectionTitle withMargin title={data.sections.poc} />
-                <div className="mb-4">
-                  <p className="text-sm font-semibold text-slate-900">
-                    {data.poc.title}
-                  </p>
-                  <ul className="list-disc list-inside text-sm leading-relaxed text-gray-700 mt-2">
-                    {data.poc.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                {data.secondPage.blocks
-                  .filter((_, index) => index === 0)
-                  .map((block) => (
-                    <div key={block.title}>
-                      <SectionTitle title={block.title} withMargin />
-                      <ul className={RESUME_UI.secondPageList}>
-                        {block.items.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-              </div>
-
-              <div className={RESUME_UI.secondPageBlockRight}>
-                {data.secondPage.blocks
-                  .filter((_, index) => index === 1)
-                  .map((block) => (
-                    <div key={block.title}>
-                      <SectionTitle title={block.title} withMargin />
-                      <ul className={RESUME_UI.secondPageList}>
-                        {block.items.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-
-                <div>
-                  <SectionTitle
-                    title={data.sections.achievements}
-                    withMargin={false}
-                  />
-                  <div className={RESUME_UI.achievementWrapper}>
-                    <span className={RESUME_UI.achievementIcon}>
-                      {data.achievement.icon}
-                    </span>
-                    <p>
-                      <strong>{data.achievement.title}</strong>
-                      <br />
-                      {data.achievement.details}
-                    </p>
-                  </div>
-                </div>
-
-                <div>
-                  <SectionTitle title={data.sections.education} withMargin />
-                  <p className={RESUME_UI.educationDegree}>
-                    {data.education.degree}
-                  </p>
-                  <p className={RESUME_UI.educationDetails}>
-                    {data.education.details}
-                  </p>
-                </div>
-              </div>
-            </div>
+      <div className="resume-page-break w-[210mm] mx-auto bg-white mt-4">
+        <div className={RESUME_UI.bodyGrid}>
+          <div className={RESUME_UI.columns.left}>
+            <ExperienceSection experiences={secondPageexperience} />
           </div>
+
+          <aside className={RESUME_UI.columns.right}>
+            {data.secondPage?.blocks.map((block) => (
+              <div key={block.title} className="sidebar-section">
+                <SectionTitle title={block.title} withMargin />
+                <ul className={RESUME_UI.secondPageList}>
+                  {block.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
+            {data.achievement && (
+              <div className="sidebar-section">
+                <SectionTitle
+                  title={data.sections.achievements}
+                  withMargin={false}
+                />
+                <div className={RESUME_UI.achievementWrapper}>
+                  <span className={RESUME_UI.achievementIcon}>
+                    {data.achievement.icon}
+                  </span>
+                  <p>
+                    <strong>{data.achievement.title}</strong>
+                    <br />
+                    {data.achievement.details}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {data.education && (
+              <div className="sidebar-section">
+                <SectionTitle title={data.sections.education} withMargin />
+                <p className={RESUME_UI.educationDegree}>
+                  {data.education.degree}
+                </p>
+                <p className={RESUME_UI.educationDetails}>
+                  {data.education.details}
+                </p>
+              </div>
+            )}
+          </aside>
         </div>
-      )}
+      </div>
     </div>
   );
 }

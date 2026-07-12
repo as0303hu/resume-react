@@ -4,7 +4,6 @@ export const RESUME_CONFIG = {
   },
   sections: {
     experience: "EXPERIENCE",
-    poc: "PROOF OF CONCEPT",
     summary: "SUMMARY",
     education: "EDUCATION",
     achievements: "KEY ACHIEVEMENTS",
@@ -12,7 +11,7 @@ export const RESUME_CONFIG = {
   },
   profile: {
     name: "Ashutosh Kumar Singh",
-    role: "Senior Software Engineer | Full Stack (Python | React | GenAI)",
+    role: "Senior Software Engineer | Python | FastAPI | React | Generative AI",
     contacts: [
       { icon: "📞", value: "7982394846" },
       {
@@ -29,9 +28,9 @@ export const RESUME_CONFIG = {
     ],
   },
   summary:
-    "Senior Software Engineer with 7+ years of experience in designing and developing scalable enterprise applications using Python, FastAPI, React.js, PostgreSQL, and Docker across Tax Compliance, Financial Services (NBFC), and Digital Media domains. Experienced in building high-performance REST APIs, AI-powered automation solutions, and modern web applications. Hands-on expertise in Azure OpenAI, Retrieval-Augmented Generation (RAG), Agentic AI, and Large Embedding Models for developing intelligent tax research and document analysis solutions. Proven ability to collaborate directly with business stakeholders and deliver end-to-end, scalable applications from design to production. Passionate about building robust backend systems, AI-driven products, and high-quality software solutions.",
+    "Senior Software Engineer with 7+ years of experience developing scalable backend systems, modern web applications, and AI-powered enterprise solutions using Python, FastAPI, React, PostgreSQL, and AWS. Built and optimized large-scale regulatory intelligence, tax research, and financial services platforms through microservices architecture, asynchronous processing, and API-driven systems. Experienced in Generative AI technologies including Azure OpenAI, RAG, Agentic AI, Prompt Engineering, and document intelligence workflows. Strong track record of translating complex business requirements into secure, scalable, and production-ready software solutions.",
   education: {
-    degree: "Bachelor's Degree",
+    degree: "B.Tech",
     details: "APJ Abdul Kalam Azad Technical University • 03/06/2017 • India",
   },
   achievement: {
@@ -46,54 +45,87 @@ export const RESUME_CONFIG = {
   experiences: [
     {
       title: "Senior Software Engineer",
-      companyLine:
-        "Accenture Technologies • 10/2021 – Present • Karnataka, India",
-      points: [
-        "Designed and developed scalable backend services using Python (FastAPI) for enterprise applications in tax and analytics domains",
-        "Built an AI-powered alert processing system using Azure OpenAI (LLMs) to classify and filter business-relevant alerts, reducing manual effort and improving decision accuracy",
-        "Engineered an end-to-end pipeline integrating LLM validation, Selenium-based web scraping, and rule-based processing to enrich alerts with contextual external data",
-        "Automated alert ingestion from monitoring tools (e.g., VisualPing) and transformed raw inputs into structured, actionable insights",
-        "Developed a human-in-the-loop review workflow to validate and publish alerts, ensuring high data quality and compliance",
-        "Optimized backend performance using API caching, asynchronous processing, and modular architecture, enabling scalable and efficient systems",
-        "Contributed to system design and architecture discussions, building extensible solutions aligned with evolving business needs",
-        "Built high-performance applications using React.js and Next.js, improving page load time by 40% via SSR and code-splitting",
-        "Reduced API requests by 60% through optimized data fetching (React Query, Redux), improving overall system efficiency",
-        "Implemented SEO optimizations with dynamic rendering, achieving full crawlability",
-        "Developed 20+ reusable UI components, reducing development effort by 35% and improving maintainability",
-        "Promoted for strong technical ownership and consistent delivery across multiple client engagements",
+      company: "Accenture Technologies",
+      duration: "Oct 2021 – Present",
+      location: "Bengaluru, India",
+      projects: [
+        {
+          name: "GRIP – Global Regulatory Intelligence Platform | Senior Backend Engineer",
+          points: [
+            "Architected and developed scalable backend services for a global regulatory intelligence platform ingesting content from 280+ regulatory sources.",
+            "Designed and maintained FastAPI-based microservices and PostgreSQL data models for alert generation, classification, enrichment, and delivery workflows.",
+            "Designed and implemented event-driven processing pipelines using Python and AWS SQS, reliably handling 3K–4K regulatory alerts/month with high reliability and fault tolerance",
+            "Developed REST APIs for alert management, source monitoring, workflow automation, and regulatory research operations.",
+            "Optimised database queries and backend workflows to improve performance, scalability, and reliability.",
+            "Designed and implemented a RAG (Retrieval-Augmented Generation) POC using embedding models and Azure OpenAI for semantic search, contextual retrieval, and AI-driven summarisation.",
+            "Implemented LLM-driven triage and summarisation workflows using Azure OpenAI and prompt engineering to enhance regulatory research outputs.",
+            "Collaborated with product, research, and compliance stakeholders to deliver production-grade backend systems.",
+          ],
+        },
+        {
+          name: "Tax Research Reimagination / AI Workflow Automation | Backend & GenAI Engineer",
+          points: [
+            "Engineered AI workflow automation pipelines combining LLM validation, Selenium-based extraction, rule-based enrichment, and structured tax research insight generation.",
+            "Designed end-to-end document intelligence workflows for PDF ingestion, extraction, validation, enrichment, human review, and publishing.",
+            "Built AI-native backend solutions using Azure OpenAI, prompt engineering, and workflow orchestration to automate tax research operations.",
+            "Authored HLD and LLD architecture for large-scale PDF processing systems, covering workflow orchestration, service integration, exception handling, and publishing lifecycle.",
+            "Developed Agentic AI workflows orchestrating multi-step LLM-driven extraction, validation, enrichment, and decision-making pipelines.",
+            "Defined scalable system architecture, API integration patterns, and observability workflows for enterprise AI platform modernization.",
+            "Automated human-in-the-loop review and publishing workflows to improve quality, compliance readiness, and production reliability.",
+          ],
+        },
+        {
+          name: "Social Media Platform | Full Stack Engineer",
+          points: [
+            "Built high-performance full-stack features using React.js and Next.js, improving page load performance by 40% via SSR and code-splitting.",
+            "Reduced API calls by 60% using optimised data-fetching strategies with React Query, Redux, and caching.",
+            "Developed 20+ reusable UI components using Material UI, reducing development effort by 35%.",
+            "Integrated frontend modules with backend APIs to deliver scalable and responsive user experiences.",
+          ],
+        },
       ],
     },
     {
       title: "Software Developer",
-      companyLine:
-        "Davita Financial Services Pvt. Ltd. • 09/2020 – 09/2021 • Karnataka, India",
-      points: [
-        "Crafted end-to-end loan flows integrated with Flipkart using React Hook Form, Yup, and custom hooks (debounce, date-time)",
-        "Engaged across UI Stack and Operational layer to streamline submission flow and increased form submissions by 29%",
-        "Implemented backend rate-limiting to ensure compliance and prevent abuse/misuse of platform",
-        "Styled, paginated & sortable tables with debounced filters + Redux, reduced API calls by 42% and improved performance by 21%",
+      company: "Davita Financial Services Pvt. Ltd.",
+      duration: "Sep 2020 – Sep 2021",
+      location: "Karnataka, India",
+      projects: [
+        {
+          name: "Marketplace Partner Integration Platform",
+          points: [
+            "Built and integrated partner-facing application forms for marketplace channels such as Flipkart and Amazon to support embedded customer onboarding journeys.",
+            "Developed the UI flow where users launch a specific product card and open a contextual application experience directly within the partner touchpoint.",
+            "Crafted end-to-end loan application flows using React Hook Form, Yup, and reusable custom hooks (debounce, date-time) to improve form reliability and validation quality.",
+            "Collaborated across UI and operational layers to streamline submission workflows, contributing to a 29% increase in completed form submissions.",
+          ],
+        },
+        {
+          name: "Loan Operations Workflow Platform",
+          points: [
+            "Implemented backend rate-limiting to ensure compliance and prevent abuse/misuse of platform",
+            "Styled, paginated & sortable tables with debounced filters + Redux, reduced API calls by 42% and improved performance by 21%",
+          ],
+        },
       ],
     },
     {
       title: "Software Developer Associate",
-      companyLine:
-        "Mount Blue Technology • 05/2019 – 09/2020 • Karnataka, India",
-      points: [
-        "Completed 3-month intensive training program covering End-to-End process",
-        "Deputed to Davita Financial Services Pvt. Ltd. - focused on Presentation Layer Fabrication",
-        "Designed & executed frontend logic using Material UI components to support operational roles, enabling complete end-to-end loan workflow from logic to disbursement",
+      company: "Mount Blue Technology",
+      duration: "May 2019 – Sep 2020",
+      location: "Karnataka, India",
+      projects: [
+        {
+          name: "Loan Operations Workflow Platform",
+          points: [
+            "Completed 3-month intensive training program covering End-to-End process",
+            "Deputed to Davita Financial Services Pvt. Ltd. - focused on Presentation Layer Fabrication",
+            "Designed & executed frontend logic using Material UI components to support operational roles, enabling complete end-to-end loan workflow from logic to disbursement",
+          ],
+        },
       ],
     },
   ],
-  poc: {
-    title: "RAG & Vector Database Proof of Concept",
-    items: [
-      "Built a proof of concept for RAG-enabled AI workflows using Azure OpenAI and vector database search",
-      "Integrated retrieval-augmented generation with contextual prompt orchestration for higher-quality responses",
-      "Validated concept performance by combining LLM inference, vector search, and prompt engineering in a real-world scenario",
-      "Demonstrated end-to-end retrieval and answer generation with scalable search vectors",
-    ],
-  },
   footer: {
     signatureLabel: "Signature",
     signature: "Ashutosh Kumar Singh",
@@ -103,13 +135,6 @@ export const RESUME_CONFIG = {
   secondPage: {
     title: "ADDITIONAL INFORMATION",
     blocks: [
-      {
-        title: "PROJECTS",
-        items: [
-          "Built a modular React resume template with reusable UI sections and print-friendly layout",
-          "Created a clean, professional structure that can be extended with more experience or portfolio content",
-        ],
-      },
       {
         title: "CERTIFICATIONS",
         items: [
@@ -125,39 +150,29 @@ export const RESUME_CONFIG = {
       items: ["Python", "JavaScript (ES6+)", "SQL"],
     },
     {
-      category: "Frameworks & Libraries",
+      category: "Backend Development",
       items: [
         "FastAPI",
-        "React.js",
-        "Next.js",
-        "LangGraph",
-        "Redux",
-        "React Query",
-        "Material UI",
-        "Pydantic",
+        "REST APIs",
+        "Microservices",
+        "Asynchronous Programming",
+        "API Integration",
+        "Authentication & Authorization",
+        "Backend Architecture",
       ],
     },
     {
       category: "AI & Generative AI",
       items: [
         "Azure OpenAI",
-        "LangGraph",
+        "Generative AI",
+        "LLMs",
+        "RAG",
         "Agentic AI",
-        "Retrieval-Augmented Generation (RAG)",
+        "LangGraph",
         "Prompt Engineering",
-        "Large Language Models (LLMs)",
         "Embedding Models",
         "AI Workflow Automation",
-      ],
-    },
-    {
-      category: "Backend Development",
-      items: [
-        "REST APIs",
-        "Microservices",
-        "Asynchronous Programming",
-        "API Integration",
-        "Authentication & Authorization",
       ],
     },
     {
@@ -165,16 +180,31 @@ export const RESUME_CONFIG = {
       items: ["PostgreSQL", "MySQL", "SQLite"],
     },
     {
-      category: "DevOps & Cloud",
-      items: ["Docker", "AWS", "Liquibase", "Git", "GitHub"],
+      category: "Cloud & DevOps",
+      items: ["AWS", "Docker", "Liquibase", "Git", "GitHub"],
     },
     {
-      category: "Automation & Tools",
-      items: ["Jira", "Confluence"],
+      category: "Messaging & Integration",
+      items: ["AWS SQS", "Event-Driven Architecture", "Service Integrations"],
     },
     {
-      category: "Methodologies",
-      items: ["Agile", "Scrum"],
+      category: "Frontend Development",
+      items: ["React.js", "Redux", "React Query", "Material UI"],
+    },
+    {
+      category: "Architecture & Engineering",
+      items: [
+        "System Design",
+        "Distributed Systems",
+        "Microservices Architecture",
+        "API Design",
+        "Scalable Systems",
+        "Performance Optimization",
+      ],
+    },
+    {
+      category: "Monitoring & Collaboration",
+      items: ["Datadog", "Jira", "Confluence", "Agile", "Scrum"],
     },
   ],
 };

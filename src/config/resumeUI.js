@@ -26,6 +26,7 @@ export const RESUME_UI = {
   experience: {
     role: "font-bold text-[#1e40af] m-0 leading-tight",
     companyLine: "font-semibold m-0 mt-0.5 leading-tight",
+    projectLine: "text-[13px] mt-1 leading-tight font-semibold text-[#1e40af]",
     list: "text-[11px] mt-2 space-y-1 list-none",
     item: "",
     block: "mb-6",
@@ -45,7 +46,12 @@ export const RESUME_UI = {
   secondPageBlockRight: "col-span-5 space-y-3 px-4 pt-0",
   achievementWrapper: "flex gap-2",
   achievementIcon: "text-2xl",
-  skillCategory: "text-blue-600 font-semibold m-0 mb-1 leading-tight",
-  skillItems: "flex flex-wrap gap-x-4 gap-y-0.5 text-[12px] leading-tight",
-  skillsWrapper: "space-y-2",
+  skillCategory:
+    "text-[#1e40af] font-bold m-0 mb-2 leading-tight tracking-wide text-[12px] uppercase",
+  skillItems: "flex flex-wrap gap-1.5 text-[11px] leading-tight",
+  skillGroup:
+    "skill-group rounded-md border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-2.5",
+  skillTag:
+    "inline-flex items-center rounded-full border border-blue-200 bg-white px-2 py-0.5 text-[10.5px] font-medium text-slate-700",
+  skillsWrapper: "space-y-2.5",
 };
