@@ -12,7 +12,7 @@ export const RESUME_CONFIG = {
   },
   profile: {
     name: "Ashutosh Kumar Singh",
-    role: "Senior Software Engineer | Full Stack Engineer (Python | React | GenAI))",
+    role: "Senior Software Engineer | Full Stack (Python | React | GenAI)",
     contacts: [
       { icon: "📞", value: "7982394846" },
       {
