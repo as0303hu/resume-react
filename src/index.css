@@ -71,6 +71,7 @@ body {
     break-inside:avoid !important;
     page-break-inside:avoid
   }
+  
   .sidebar-section {
     break-inside: avoid !important;
     page-break-inside: avoid !important;

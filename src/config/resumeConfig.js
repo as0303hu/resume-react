@@ -15,7 +15,7 @@ export const RESUME_CONFIG = {
     contacts: [
       { icon: "📞", value: "7982394846" },
       {
-        icon: "✉️",
+        icon: "✉",
         value: "as0303hu@gmail.com",
         url: "mailto:as0303hu@gmail.com",
       },
@@ -24,87 +24,171 @@ export const RESUME_CONFIG = {
         value: "linkedin.com/in/ashu-aks",
         url: "https://linkedin.com/in/ashu-aks",
       },
+      // TODO: uncomment once GitHub profile has pinned repos
+      // (see local-doc/evaluation/CV-EXPECTATIONS-ANALYSIS.md)
+      // {
+      //   icon: "💻",
+      //   value: "github.com/as0303hu",
+      //   url: "https://github.com/as0303hu",
+      // },
       { icon: "📍", value: "Noida, Uttar Pradesh, India" },
     ],
   },
   summary:
-    "Senior Software Engineer with 7+ years of experience developing scalable backend systems, modern web applications, and AI-powered enterprise solutions using Python, FastAPI, React, PostgreSQL, and AWS. Built and optimized large-scale regulatory intelligence, tax research, and financial services platforms through microservices architecture, asynchronous processing, and API-driven systems. Experienced in Generative AI technologies including Azure OpenAI, RAG, Agentic AI, Prompt Engineering, and document intelligence workflows. Strong track record of translating complex business requirements into secure, scalable, and production-ready software solutions.",
+    "Senior Software Engineer with 7+ years building backend systems and " +
+    "AI-powered platforms using Python, FastAPI, React, and AWS. Shipped " +
+    "production LLM pipelines (RAG, LangGraph, multi-agent workflows) and " +
+    "owned end-to-end system design for regulatory intelligence and tax " +
+    "research platforms processing 4K+ alerts/month.",
   education: {
     degree: "B.Tech",
     details: "APJ Abdul Kalam Azad Technical University • 03/06/2017 • India",
   },
-  achievement: {
-    icon: "⭐",
-    title: "Promotion at Accenture",
-    details:
-      "Promoted in recognition of technical ownership and consistent delivery across multiple client projects",
-  },
+  achievements: [
+    {
+      icon: "🚀",
+      title: "GRIP Platform - POC to Production Launch",
+      details:
+        "Led backend delivery from POC to production, migrating 7,574 alerts " +
+        "- platform now used by E-Invoicing Tax Research team to monitor " +
+        "global mandates with >90% AI classification accuracy across 200+ " +
+        "government sources.",
+    },
+    {
+      icon: "⚡",
+      title: "Test Data Generation - Manual to Automated",
+      details:
+        "Eliminated the most time-consuming manual step in regression testing " +
+        "- shipped a platform covering ~249 countries that auto-generates " +
+        "combinatorial test data via a custom permutation engine, replacing " +
+        "hundreds of hand-crafted CSV rows per country.",
+    },
+  ],
   certifications: {
-    items: ["AWS Certified Cloud Practitioner", "Microsoft Azure Fundamentals"],
+    items: [
+      "Large PDF RAG Pipeline - LangChain, PyMuPDF, pgvector, Azure OpenAI - " +
+        "Production RAG system for 100+ page regulatory PDFs",
+    ],
   },
   experiences: [
     {
       title: "Senior Software Engineer",
       company: "Accenture Technologies",
-      duration: "Oct 2021 – Present",
+      duration: "Oct 2021 - Present",
       location: "Bengaluru, India",
       projects: [
         {
-          name: "GRIP – Global Regulatory Intelligence Platform | Senior Backend Engineer",
+          name: "GRIP | Global Regulatory Intelligence Platform | Senior Backend & GenAI Engineer",
           points: [
-            "Architected and developed scalable backend services for a global regulatory intelligence platform ingesting content from 280+ regulatory sources.",
-            "Designed and maintained FastAPI-based microservices and PostgreSQL data models for alert generation, classification, enrichment, and delivery workflows.",
-            "Designed and implemented event-driven processing pipelines using Python and AWS SQS, reliably handling 3K–4K regulatory alerts/month with high reliability and fault tolerance",
-            "Developed REST APIs for alert management, source monitoring, workflow automation, and regulatory research operations.",
-            "Optimised database queries and backend workflows to improve performance, scalability, and reliability.",
-            "Designed and implemented a RAG (Retrieval-Augmented Generation) POC using embedding models and Azure OpenAI for semantic search, contextual retrieval, and AI-driven summarisation.",
-            "Implemented LLM-driven triage and summarisation workflows using Azure OpenAI and prompt engineering to enhance regulatory research outputs.",
-            "Collaborated with product, research, and compliance stakeholders to deliver production-grade backend systems.",
+            "Owned the backend for an AI-powered regulatory intelligence " +
+              "platform used by the E-Invoicing Tax Research team to monitor " +
+              "global e-invoicing mandates - built the ingestion pipeline " +
+              "processing webhooks from 200+ government websites via VisualPing " +
+              "into FastAPI on ECS Fargate.",
+            "Designed FastAPI (Python 3.11) backend services and PostgreSQL " +
+              "15 data models for the full alert lifecycle - ingestion, AI " +
+              "classification, multi-level review (3 approval tiers), and " +
+              "publishing to Notion.",
+            "Built event-driven processing pipelines using Python and AWS " +
+              "SQS, reliably processing 3K-4K regulatory alerts/month - " +
+              "integrated VisualPing webhooks and backend queue processing " +
+              "across 4 environments (dev, stable, stage, prod).",
+            "Built REST APIs for alert management (with server-side " +
+              "pagination and total_count), datasource monitoring, and the " +
+              "3-level approval workflow - implemented Cognito OAuth 2.0 token " +
+              "validation middleware for all protected endpoints.",
+            "Implemented structured logging across all third-party " +
+              "integrations (Notion, OpenAI) with correlation context - making " +
+              "API failures, error rates, AI processing backlog, and webhook " +
+              "issues traceable and debuggable in production.",
+            "Built and shipped a production RAG pipeline for large regulatory " +
+              "PDFs (100+ pages) using LangChain, PyMuPDF, and pgvector - " +
+              "chunking, embedding, and vector similarity search over a " +
+              "dedicated PostgreSQL vector store, enabling semantic retrieval " +
+              "of regulatory content that the standard AI pipeline couldn't " +
+              "process.",
+            "Designed a 3-stage LLM prompt pipeline (triage -> exploration -> " +
+              "item tagging) using Azure OpenAI GPT-4.1 and Jinja templates - " +
+              "each stage produces paired reasoning and confidence fields, " +
+              "enabling transparent AI decisions that analysts validate before " +
+              "publishing for business-wide consumption.",
           ],
         },
         {
-          name: "Tax Research Reimagination / AI Workflow Automation | Backend & GenAI Engineer",
+          name: "Tax Research Reimagined (TRR) / TRAIN | Backend & GenAI Engineer",
           points: [
-            "Engineered AI workflow automation pipelines combining LLM validation, Selenium-based extraction, rule-based enrichment, and structured tax research insight generation.",
-            "Designed end-to-end document intelligence workflows for PDF ingestion, extraction, validation, enrichment, human review, and publishing.",
-            "Built AI-native backend solutions using Azure OpenAI, prompt engineering, and workflow orchestration to automate tax research operations.",
-            "Authored HLD and LLD architecture for large-scale PDF processing systems, covering workflow orchestration, service integration, exception handling, and publishing lifecycle.",
-            "Developed Agentic AI workflows orchestrating multi-step LLM-driven extraction, validation, enrichment, and decision-making pipelines.",
-            "Defined scalable system architecture, API integration patterns, and observability workflows for enterprise AI platform modernization.",
-            "Automated human-in-the-loop review and publishing workflows to improve quality, compliance readiness, and production reliability.",
+            "Contributed to the RuleBuilder AI agent - a LangGraph-based " +
+              "multi-agent system with 5 specialized agents (Orchestrator, " +
+              "DataModel, FormSpec, Rules, Template) that automates tax rule " +
+              "authoring from natural language for production rule execution.",
+            "Owned and architected the Test Data Generation platform " +
+              "end-to-end - designed the FastAPI engine and React 19 frontend, " +
+              "consuming DMD APIs for live tax form definitions, replacing the " +
+              "team's manual PICT/Excel process with an automated combinatorial " +
+              "permutation engine generating test coverage across ~249 " +
+              "countries.",
+            "Delivered 3 milestone releases for the test data engine - " +
+              "cascade selection UI, combinatorial n-way coverage generation, " +
+              "merge workflows, multi-tax-set support, column profile " +
+              "management, and dual-format CSV export (44-col VITR regression / " +
+              "87-208-col VVC Tax Research).",
+            "Built the FastAPI backend (Python 3.12, SQLAlchemy 2, asyncpg) " +
+              "with PostgreSQL schema design (Liquibase migrations), REST APIs " +
+              "for generation runs, transaction CRUD, and CSV export - serving " +
+              "a React 19 frontend deployed on Azure.",
           ],
         },
+      ],
+    },
+    {
+      continuation: true,
+      projects: [
         {
           name: "Social Media Platform | Full Stack Engineer",
           points: [
-            "Built high-performance full-stack features using React.js and Next.js, improving page load performance by 40% via SSR and code-splitting.",
-            "Reduced API calls by 60% using optimised data-fetching strategies with React Query, Redux, and caching.",
-            "Developed 20+ reusable UI components using Material UI, reducing development effort by 35%.",
-            "Integrated frontend modules with backend APIs to deliver scalable and responsive user experiences.",
+            "Built high-performance full-stack features using React.js, " +
+              "improving page load performance by 40% via code-splitting and " +
+              "lazy loading.",
+            "Reduced API calls by 60% using optimised data-fetching " +
+              "strategies with React Query, Redux, and caching.",
+            "Developed 20+ reusable UI components using Material UI, reducing " +
+              "development effort by 35%.",
+            "Integrated frontend modules with backend APIs to deliver " +
+              "scalable and responsive user experiences.",
           ],
         },
       ],
     },
     {
       title: "Software Developer",
-      company: "Davita Financial Services Pvt. Ltd.",
-      duration: "Sep 2020 – Sep 2021",
+      company: "Davinta Financial Services Pvt. Ltd.",
+      duration: "Sep 2020 - Sep 2021",
       location: "Karnataka, India",
       projects: [
         {
           name: "Marketplace Partner Integration Platform",
           points: [
-            "Built and integrated partner-facing application forms for marketplace channels such as Flipkart and Amazon to support embedded customer onboarding journeys.",
-            "Developed the UI flow where users launch a specific product card and open a contextual application experience directly within the partner touchpoint.",
-            "Crafted end-to-end loan application flows using React Hook Form, Yup, and reusable custom hooks (debounce, date-time) to improve form reliability and validation quality.",
-            "Collaborated across UI and operational layers to streamline submission workflows, contributing to a 29% increase in completed form submissions.",
+            "Built and integrated partner-facing application forms for " +
+              "marketplace channels such as Flipkart and Amazon to support " +
+              "embedded customer onboarding journeys.",
+            "Developed the UI flow where users launch a specific product card " +
+              "and open a contextual application experience directly within the " +
+              "partner touchpoint.",
+            "Crafted end-to-end loan application flows using React Hook Form, " +
+              "Yup, and reusable custom hooks (debounce, date-time) to improve " +
+              "form reliability and validation quality.",
+            "Collaborated across UI and operational layers to streamline " +
+              "submission workflows, contributing to a 29% increase in " +
+              "completed form submissions.",
           ],
         },
         {
           name: "Loan Operations Workflow Platform",
           points: [
-            "Implemented backend rate-limiting to ensure compliance and prevent abuse/misuse of platform",
-            "Styled, paginated & sortable tables with debounced filters + Redux, reduced API calls by 42% and improved performance by 21%",
+            "Implemented backend rate-limiting to ensure compliance and " +
+              "prevent abuse/misuse of platform",
+            "Styled, paginated & sortable tables with debounced filters + " +
+              "Redux, reduced API calls by 42% and improved performance by 21%.",
           ],
         },
       ],
@@ -112,15 +196,22 @@ export const RESUME_CONFIG = {
     {
       title: "Software Developer Associate",
       company: "Mount Blue Technology",
-      duration: "May 2019 – Sep 2020",
+      duration: "May 2019 - Sep 2020",
       location: "Karnataka, India",
       projects: [
         {
           name: "Loan Operations Workflow Platform",
           points: [
-            "Completed 3-month intensive training program covering End-to-End process",
-            "Deputed to Davita Financial Services Pvt. Ltd. - focused on Presentation Layer Fabrication",
-            "Designed & executed frontend logic using Material UI components to support operational roles, enabling complete end-to-end loan workflow from logic to disbursement",
+            "Built the frontend foundation for the Loan Operations Workflow " +
+              "Platform using React and Material UI - implemented core UI " +
+              "modules for operational roles across loan origination, " +
+              "processing, and disbursement.",
+            "Developed reusable form components, data tables, and workflow " +
+              "screens that supported end-to-end loan lifecycle management for " +
+              "operations teams.",
+            "Collaborated with backend engineers to integrate REST APIs and " +
+              "establish frontend patterns (state management, routing, " +
+              "component structure) used across the platform.",
           ],
         },
       ],
@@ -130,81 +221,91 @@ export const RESUME_CONFIG = {
     signatureLabel: "Signature",
     signature: "Ashutosh Kumar Singh",
     dateLabel: "Date",
-    date: "27 June 2026",
+    date: "15 August 2026",
   },
+  secondPageSkills: [],
   secondPage: {
     title: "ADDITIONAL INFORMATION",
     blocks: [
       {
-        title: "CERTIFICATIONS",
+        title: "PROJECTS",
         items: [
-          "AWS Certified Cloud Practitioner",
-          "Microsoft Azure Fundamentals",
+          {
+            name: "Large PDF RAG Pipeline",
+            tech: ["LangChain", "PyMuPDF", "pgvector", "Azure OpenAI"],
+            description:
+              "Production RAG system for processing 100+ page regulatory PDFs " +
+              "- chunking, embedding generation, and vector similarity search " +
+              "over a dedicated PostgreSQL vector store. Integrated into GRIP " +
+              "for semantic retrieval of regulatory content.",
+          },
         ],
       },
     ],
   },
   skills: [
     {
-      category: "Programming Languages",
-      items: ["Python", "JavaScript (ES6+)", "SQL"],
+      category: "Languages",
+      items: ["Python", "JavaScript (ES6+)", "TypeScript", "SQL"],
     },
     {
-      category: "Backend Development",
+      category: "AI / GenAI",
       items: [
-        "FastAPI",
-        "REST APIs",
-        "Microservices",
-        "Asynchronous Programming",
-        "API Integration",
-        "Authentication & Authorization",
-        "Backend Architecture",
+        "Azure OpenAI",
+        "RAG",
+        "LangChain",
+        "LangGraph",
+        "Prompt Engineering",
+        "Agentic AI",
+        "Embedding Models",
+        "PyMuPDF",
       ],
     },
     {
-      category: "AI & Generative AI",
+      category: "Backend",
       items: [
-        "Azure OpenAI",
-        "Generative AI",
-        "LLMs",
-        "RAG",
-        "Agentic AI",
-        "LangGraph",
-        "Prompt Engineering",
-        "Embedding Models",
-        "AI Workflow Automation",
+        "FastAPI",
+        "REST API Design",
+        "SQLAlchemy",
+        "asyncpg",
+        "Async Programming",
+        "Jinja Templates",
       ],
     },
     {
       category: "Databases",
-      items: ["PostgreSQL", "MySQL", "SQLite"],
+      items: ["PostgreSQL", "pgvector", "Liquibase", "Database Design"],
     },
     {
-      category: "Cloud & DevOps",
-      items: ["AWS", "Docker", "Liquibase", "Git", "GitHub"],
-    },
-    {
-      category: "Messaging & Integration",
-      items: ["AWS SQS", "Event-Driven Architecture", "Service Integrations"],
-    },
-    {
-      category: "Frontend Development",
-      items: ["React.js", "Redux", "React Query", "Material UI"],
-    },
-    {
-      category: "Architecture & Engineering",
+      category: "Frontend",
       items: [
-        "System Design",
-        "Distributed Systems",
-        "Microservices Architecture",
-        "API Design",
-        "Scalable Systems",
-        "Performance Optimization",
+        "React.js",
+        "Redux",
+        "React Query",
+        "Material UI",
+        "React Hook Form",
       ],
     },
     {
-      category: "Monitoring & Collaboration",
-      items: ["Datadog", "Jira", "Confluence", "Agile", "Scrum"],
+      category: "Cloud & Infrastructure",
+      items: [
+        "AWS (SQS, CloudFront)",
+        "Azure",
+        "Cognito OAuth 2.0",
+        "Docker",
+        "CI/CD",
+      ],
+    },
+    {
+      category: "Tools & Practices",
+      items: [
+        "Git",
+        "Jira",
+        "Confluence",
+        "Microservices",
+        "Event-Driven Architecture",
+        "System Design",
+      ],
     },
   ],
 };

@@ -2,89 +2,56 @@ import SectionTitle from "./SectionTitle";
 import { RESUME_UI } from "../config/resumeUI";
 
 const EXPERIENCE_KEYWORDS = [
-  "280+ regulatory sources",
-  "3k-4k regulatory alerts per month",
-  "asynchronous processing pipelines",
-  "AI-assisted triage and summarization workflows",
-  "scalable backend solutions",
-  "database queries",
-  "REST APIs",
-  "AWS SQS",
-  "microservices",
-  "Prompt Engineering",
-  "Python",
-  "FastAPI",
-  "enterprise applications",
-  "tax",
-  "analytics",
   "AI-powered",
-  "alert processing system",
-  "Azure OpenAI",
-  "LLMs",
-  "classify",
-  "filter",
-  "decision accuracy",
-  "end-to-end pipeline",
-  "LLM validation",
-  "Selenium-based web scraping",
-  "rule-based processing",
+  "200+",
   "VisualPing",
-  "human-in-the-loop",
-  "review workflow",
-  "data quality",
+  "FastAPI",
+  "ECS Fargate",
+  "Python 3.11",
+  "PostgreSQL 15",
+  "Azure Logic App",
+  "AWS SQS",
+  "3K-4K",
+  "Cognito OAuth 2.0",
+  "REST APIs",
+  "Datadog",
+  "RAG",
+  "LangChain",
+  "PyMuPDF",
+  "pgvector",
+  "PostgreSQL",
+  "Azure OpenAI GPT-4.1",
+  "LangGraph",
+  "end-to-end",
+  "React 19",
+  "Flask",
+  "PICT",
+  "Python 3.12",
+  "SQLAlchemy 2",
+  "asyncpg",
+  "Liquibase",
+  "CoreCalc",
+  "TRAIN",
   "compliance",
-  "backend performance",
-  "API caching",
-  "asynchronous processing",
-  "modular architecture",
-  "system design",
-  "architecture discussions",
-  "extensible solutions",
+  "tax",
   "React.js",
   "Next.js",
   "SSR",
   "code-splitting",
-  "API requests",
   "React Query",
   "Redux",
-  "SEO",
-  "dynamic rendering",
-  "crawlability",
   "UI components",
-  "technical ownership",
-  "API requests",
-  "React Query",
-  "Redux",
-  "SEO",
-  "Node.js",
-  "meta tags",
-  "multi-language",
-  "theming",
-  "API-layer caching",
-  "architecture",
-  "CI/CD",
-  "B2B analytics platform",
-  "React",
-  "UI components",
-  "PostgreSQL",
-  "AWS",
-  "prompt engineering",
+  "Material UI",
   "React Hook Form",
   "Yup",
   "custom hooks",
   "debounce",
   "rate-limiting",
-  "Material UI",
+  "end-to-end loan workflow",
   "tables",
-  "dashboards",
-  "bar",
-  "pie",
-  "Sankey",
-  "line charts",
-  "end-to-end",
-  "loan workflow",
-  "10K",
-  "1M+",
+  "200+",
+  "3K-4K",
+  "100+",
   "20+",
   "60%",
   "40%",
@@ -92,17 +59,17 @@ const EXPERIENCE_KEYWORDS = [
   "29%",
   "42%",
   "21%",
+  "44",
+  "870-294"
 ];
 
 const KEYWORD_REGEX = new RegExp(
   `(${EXPERIENCE_KEYWORDS.map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`,
-  "gi",
+  "gi"
 );
 
-const METRIC_SPLIT_REGEX =
-  /(\d[\d,]*(?:\.\d+)?(?:[KkMmBb])?\+?(?:\s*[-–]\s*\d[\d,]*(?:\.\d+)?(?:[KkMmBb])?\+?)?%?)/g;
-const METRIC_DETECT_REGEX =
-  /^\d[\d,]*(?:\.\d+)?(?:[KkMmBb])?\+?(?:\s*[-–]\s*\d[\d,]*(?:\.\d+)?(?:[KkMmBb])?\+?)?%?$/;
+const METRIC_SPLIT_REGEX = /(\d[\d,]*(\.\d+)?(?:[KkMmBb])?\+?(?:\s*[-–]\s*\d[\d,]*(\.\d+)?(?:[KkMmBb])?\+?)?)/g;
+const METRIC_DETECT_REGEX = /^\d[\d,]*(\.\d+)?(?:[KkMmBb])?\+?(?:\s*[-–]\s*\d[\d,]*(\.\d+)?(?:[KkMmBb])?\+?)?$/;
 
 function renderSegmentWithMetrics(segment, parentIndex) {
   return segment.split(METRIC_SPLIT_REGEX).map((metricPart, metricIndex) => {
@@ -110,22 +77,11 @@ function renderSegmentWithMetrics(segment, parentIndex) {
       return null;
     }
 
-    if (!METRIC_DETECT_REGEX.test(metricPart)) {
-      return (
-        <span key={`${parentIndex}-${metricIndex}-${metricPart}`}>
-          {metricPart}
-        </span>
-      );
+    if (METRIC_DETECT_REGEX.test(metricPart)) {
+      return <span key={`${parentIndex}-${metricIndex}-${metricPart}`}>{metricPart}</span>;
     }
 
-    return (
-      <span
-        key={`${parentIndex}-${metricIndex}-${metricPart}`}
-        className="font-bold text-black"
-      >
-        {metricPart}
-      </span>
-    );
+    return <span key={`${parentIndex}-${metricIndex}-${metricPart}`}>{metricPart}</span>;
   });
 }
 
@@ -138,7 +94,7 @@ function renderPointWithKeywords(point) {
     }
 
     const isKeyword = EXPERIENCE_KEYWORDS.some(
-      (keyword) => keyword.toLowerCase() === part.toLowerCase(),
+      (keyword) => keyword.toLowerCase() === part.toLowerCase()
     );
 
     if (!isKeyword) {
@@ -158,47 +114,50 @@ function renderPointWithKeywords(point) {
 }
 
 function ExperienceBlock({ experience }) {
-  const companyMeta = [
-    experience.company,
-    experience.duration,
-    experience.location,
-  ]
+  const companyMeta = [experience.company, experience.duration, experience.location]
     .filter(Boolean)
     .join(" | ");
+
   const projects = Array.isArray(experience.projects)
-    ? experience.projects
-        .map((project) =>
-          typeof project === "string"
-            ? { name: project, points: [] }
-            : { name: project.name, points: project.points || [] },
-        )
-        .filter((project) => project.name)
+    ? experience.projects.map((project) =>
+        typeof project === "string"
+          ? { name: project, points: [] }
+          : { name: project?.name, points: project?.points || [] }
+      ).filter((project) => project.name)
     : experience.project
-      ? [{ name: experience.project, points: experience.points || [] }]
-      : [];
+    ? [{ name: experience.project, points: experience.points || [] }]
+    : [];
 
   return (
     <div className={RESUME_UI.experience.block}>
-      <p className={RESUME_UI.experience.role}>{experience.title}</p>
-      <p className={RESUME_UI.experience.companyLine}>
-        {companyMeta || experience.companyLine}
-      </p>
-      {projects.map((project) => (
-        <div key={project.name} className={"experience-project"}>
-          <p className={RESUME_UI.experience.projectLine}>
-            <span>Project:</span> <strong>{project.name}</strong>
+      {!experience.continuation && (
+        <>
+          <p className={RESUME_UI.experience.role}>{experience.title}</p>
+          <p className={RESUME_UI.experience.companyLine}>
+            {companyMeta || experience.companyLine}
           </p>
+        </>
+      )}
+
+      {projects.map((project) => (
+        <div key={project.name} className="experience-project">
+          <p className={RESUME_UI.experience.projectLine}>
+            <span>Project:</span>{" "}
+            <span>{project.name}</span>
+          </p>
+
           <ul className={RESUME_UI.experience.list}>
             {project.points.map((point) => (
-              <li key={point}>• {renderPointWithKeywords(point)}</li>
+              <li key={`${project.name}-${point}`}>{renderPointWithKeywords(point)}</li>
             ))}
           </ul>
         </div>
       ))}
-      {!projects.length && (
+
+      {projects.length === 0 && (
         <ul className={RESUME_UI.experience.list}>
-          {experience.points.map((point) => (
-            <li key={point}>• {renderPointWithKeywords(point)}</li>
+          {experience.points?.map((point) => (
+            <li key={point}>{renderPointWithKeywords(point)}</li>
           ))}
 
           {experience.highlightLabel && (
@@ -208,7 +167,7 @@ function ExperienceBlock({ experience }) {
           )}
 
           {experience.highlightPoints?.map((point) => (
-            <li key={point}>• {renderPointWithKeywords(point)}</li>
+            <li key={point}>{renderPointWithKeywords(point)}</li>
           ))}
         </ul>
       )}
@@ -219,7 +178,7 @@ function ExperienceBlock({ experience }) {
 export default function ExperienceSection({ sectionTitle, experiences }) {
   return (
     <section>
-      {sectionTitle && <sectionTitle title={sectionTitle} withMargin />}
+      {sectionTitle && <SectionTitle title={sectionTitle} withMargin />}
 
       {experiences.map((experience) => (
         <ExperienceBlock

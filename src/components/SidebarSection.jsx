@@ -1,37 +1,29 @@
 import SectionTitle from "./SectionTitle";
+import SkillsBlock from "./SkillsBlock";
 import { RESUME_UI } from "../config/resumeUI";
 
 const SUMMARY_KEYWORDS = [
   "Senior Software Engineer",
   "7+ years",
-  "scalable backend systems",
-  "mordern web applications",
-  "AI-powered enterprise solutions",
-  "large-scale regulatory intelligence",
-  "tax research",
-  "financial services platforms",
-  "microservices architecture",
-  "asynchronous processing",
-  "API-driven systems",
-  "Generative AI",
-  "RAG",
-  "Agentic AI",
-  "document intelligence workflows",
-  "production-ready software solutions",
-  "secure",
-  "scalable",
-  "AWS",
-  "Prompt Engineering",
+  "backend systems",
+  "AI-powered platforms",
   "Python",
   "FastAPI",
   "React",
-  "PostgreSQL",
-  "Azure OpenAI",
+  "AWS",
+  "production LLM pipelines",
+  "RAG",
+  "LangGraph",
+  "multi-agent workflows",
+  "end-to-end system design",
+  "regulatory intelligence",
+  "tax research",
+  "4K+ alerts/month",
 ];
 
 const SUMMARY_KEYWORD_REGEX = new RegExp(
   `(${SUMMARY_KEYWORDS.map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`,
-  "gi",
+  "gi"
 );
 
 function renderSummaryWithKeywords(summary) {
@@ -41,7 +33,7 @@ function renderSummaryWithKeywords(summary) {
     }
 
     const isKeyword = SUMMARY_KEYWORDS.some(
-      (keyword) => keyword.toLowerCase() === part.toLowerCase(),
+      (keyword) => keyword.toLowerCase() === part.toLowerCase()
     );
 
     if (!isKeyword) {
@@ -68,20 +60,7 @@ export default function SidebarSection({ data, sectionTitles }) {
 
       <div className="sidebar-section skills-section mt-[20px]">
         <SectionTitle title={sectionTitles.skills} />
-        <div className={RESUME_UI.skillsWrapper}>
-          {data.skills.map((skillGroup) => (
-            <div key={skillGroup.category} className={RESUME_UI.skillGroup}>
-              <p className={RESUME_UI.skillCategory}>{skillGroup.category}</p>
-              <div className={RESUME_UI.skillItems}>
-                {skillGroup.items.map((item) => (
-                  <span key={item} className={RESUME_UI.skillTag}>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        <SkillsBlock skills={data.skills} />
       </div>
     </aside>
   );
